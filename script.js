@@ -1,12 +1,5 @@
 //google books api
 import fetch from "fetch";
-fetch(
-  "https://www.googleapis.com/books/v1/volumes?q=search-terms&key=AIzaSyD8XTgw6x-BfOfL6LiRJGqlo4TBuiarnNM"
-)
-  .then((response) => response.json())
-  .then((result) => {
-    this.setState({ books: result.items });
-  });
 
 async function fetchBooks(search) {
   const response = await fetch(
@@ -15,6 +8,11 @@ async function fetchBooks(search) {
   const result = await response.json();
   return result.items;
 }
+
+const books = await fetchBooks("search");
+const searchBar = document.querySelector("#search-bar");
+
+document.createElement("div").innerHTML(books);
 
 // Constructor function for library
 
