@@ -24,10 +24,20 @@ function addBook() {
   addBook.author = prompt("enter author");
   addBook.pages = prompt("enter pages");
   addBook.read = prompt("read? true or false");
-  console.log(addBook.info());
-
   myLibrary.push(addBook);
   return addBook;
 }
 
-addBook();
+//function for creation elements (because lazy)
+
+function birthElement(element, parent, className, paramtext) {
+  const pointer = document.querySelector(parent);
+  let elem = document.createElement(element);
+  if (paramtext) {
+    elem.textContent = paramtext;
+  }
+  elem.setAttribute("class", className);
+  return pointer.appendChild(elem);
+}
+
+birthElement("div", ".container", "test", "Hello World");
