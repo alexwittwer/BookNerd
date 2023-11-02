@@ -114,6 +114,7 @@
   background-color: #ccc;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  border-radius: 15px;
 }
 
 .slider:before {
@@ -126,6 +127,7 @@
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  border-radius: 100%;
 }
 
 input:checked + .slider {
