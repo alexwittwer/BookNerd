@@ -5,57 +5,106 @@ const closeModal = document.querySelector("#close-btn");
 const modalForm = document.querySelector(".modal");
 const openModal = document.querySelector("#add-btn");
 const overlay = document.querySelector(".overlay");
+const shelfCurrentBook = document.querySelector("#addToShelf");
+const bookshelfCtn = document.querySelector("#bookshelf");
+
+//modal content pointers
+const mtitle = document.querySelector("#mtitle");
+const mauthor = document.querySelector("#mauthor");
+const mpages = document.querySelector("#mpages");
+const mread = document.querySelector("#mread");
 
 //open and close modal
 openModal.addEventListener("click", () => {
-  modalForm.classList.remove("hidden");
-  overlay.classList.remove("hidden");
+  openMdl();
 });
 
 closeModal.addEventListener("click", () => {
-  modalForm.classList.add("hidden");
-  overlay.classList.add("hidden");
+  closeMdl();
 });
 
-//function for creation of elements (because lazy)
+shelfCurrentBook.addEventListener("click", (e) => {
+  e.preventDefault();
+  shelfDefault();
+  console.table(myLibrary);
+});
 
+//
+//
+//
+/* Function den */
+
+//close modal
+function closeMdl() {
+  modalForm.classList.add("hidden");
+  overlay.classList.add("hidden");
+}
+
+//open modal
+function openMdl() {
+  modalForm.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+//function for creation of elements (because lazy)
 function mkelem(element, parent, className, paramtext) {
-  const pointer = document.querySelector(parent);
   let elem = document.createElement(element);
   if (paramtext) {
     elem.textContent = paramtext;
   }
   elem.setAttribute("class", className);
-  return pointer.appendChild(elem);
+  return parent.appendChild(elem);
 }
 
-//han
+//update bookshelf with current books
+function updateBookshelf(arr) {
+  clearLibrary();
+  arr.forEach((element) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    for (const props in element) {
+      mkelem("div", card, "default", `${props}: ${element[props]}`);
+    }
+    bookshelfCtn.appendChild(card);
+  });
+  return;
+}
+
+//clears all child elements
+function clearLibrary() {
+  const nodelist = document.querySelectorAll(".card");
+  nodelist.forEach((element) => {
+    element.remove();
+  });
+}
+
+//clear inputs for modal
+function clearInputs() {
+  mtitle.value = "";
+  mauthor.value = "";
+  mpages.value = "";
+}
 
 // Constructor function for library
-
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
-    return this.read
-      ? `${this.title} by ${this.author}, ${this.pages} pages, read`
-      : `${this.title} by ${this.author}, ${this.pages} pages, not read yet`;
-  };
 }
 
 // adds a book to the library
-
-function addBook() {
+function shelfBook() {
+  chRead();
   const newBook = new Book();
-  newBook.title = prompt("enter title");
-  newBook.author = prompt("enter author");
-  newBook.pages = prompt("enter pages");
-  newBook.read = prompt("read? true or false");
-  return newBook;
+  newBook.title = mtitle.value;
+  newBook.author = mauthor.value;
+  newBook.pages = mpages.value;
+  newBook.read = mread.checked;
+  return myLibrary.push(newBook);
 }
 
+// remove book
 function rmBook(name) {
   myLibrary.forEach((element) => {
     if (element.title === name) {
@@ -63,4 +112,24 @@ function rmBook(name) {
     }
   });
   return myLibrary;
+}
+
+//change mread to boolean value
+function chRead() {}
+
+// set status to read
+function readBook(selectedBook) {
+  selectedBook.read = true;
+}
+
+// set status to unread
+function unreadBook(selectedBook) {
+  selectedBook.read = false;
+}
+
+function shelfDefault() {
+  shelfBook();
+  closeMdl();
+  clearInputs();
+  updateBookshelf(myLibrary);
 }

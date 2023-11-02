@@ -43,6 +43,16 @@
   color: var(--c1a);
 }
 
+.title-bar {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.title-bar img {
+  width: 100px;
+}
+
 .addbtn {
   color: var(--c1a);
   font-family: "Raleway", sans-serif;
@@ -159,6 +169,10 @@ form #mbtn {
   justify-content: center;
   gap: 5px;
   margin: 15px;
+}
+
+.default {
+  color: var(--c1);
 }
 
 .card {

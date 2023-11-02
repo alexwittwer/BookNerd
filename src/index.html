@@ -15,7 +15,10 @@
     <div class="hidden overlay"></div>
     <div class="container">
       <header class="header" id="header">
-        <h1 class="title">bookNerd</h1>
+        <div class="title-bar">
+          <h1 class="title">bookNerd</h1>
+          <img src="/icons/bookshelf-1-svgrepo-com (1).svg" alt="" />
+        </div>
         <div class="subhead">
           <button type="button" class="addbtn" id="add-btn">
             Add book to library
@@ -57,19 +60,21 @@
                 ></span>
               </label>
             </div>
-            <button class="addbtn" id="mbtn">Add book</button>
+            <button class="addbtn" id="addToShelf">Add to shelf</button>
           </form>
         </div>
       </div>
-      <section class="main-section">
+      <section class="main-section" id="bookshelf">
         <div class="card">
           <div class="book-property">Title: The Lord of the Rings</div>
           <div class="book-property">Author: J R R Tolkein</div>
           <div class="book-property">Pages: 1172</div>
-          <div class="book-property">Status: Not read</div>
+          <div class="book-property">
+            Status: <span class="readStatus"></span>
+          </div>
           <label class="switch">
             <input type="checkbox" />
-            <span class="slider"></span>
+            <span class="slider" id="readStatusSwitch"></span>
           </label>
         </div>
       </section>
