@@ -28,7 +28,7 @@ function addBook() {
   return addBook;
 }
 
-//function for creation elements (because lazy)
+//function for creation of elements (because lazy)
 
 function birthElement(element, parent, className, paramtext) {
   const pointer = document.querySelector(parent);
@@ -39,5 +39,3 @@ function birthElement(element, parent, className, paramtext) {
   elem.setAttribute("class", className);
   return pointer.appendChild(elem);
 }
-
-birthElement("div", ".container", "test", "Hello World");

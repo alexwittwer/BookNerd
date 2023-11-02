@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --c1: #302f3a;
+  --c2: #444759;
+  --c3: #545e72;
+  --c4: #5d7680;
+  --c5: #6a9395;
+  --c6: #7bad9f;
+  --c7: #8eb29a;
+  --c8: #b3c6b4;
+  --c9: #c5d2ce;
+  --c1a: #e9eff0;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--c1);
+}
+
+/* Header elements */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  gap: 30px;
+  padding: 1rem;
+  border-bottom: 2px solid var(--c1a);
+}
+
+.title {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.8rem;
+  font-weight: 500;
+  font-size: 4rem;
+  color: var(--c1a);
+}
+
+.btn {
+  color: var(--c1a);
+  font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-radius: 15px;
+  border-style: none;
+  background-color: var(--c4);
+}
+
+.btn:hover {
+  margin: -3px;
+  background-color: var(--c5);
+  border-style: solid;
+  border-width: 3px;
+  border-color: var(--c1a);
+}
+
+.btn:active {
+  scale: 95%;
+}
+
+/* Body elements */
+
+.main-section {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 15px;
+}
+
+.card {
+  font-family: "Raleway", sans-serif;
+  border-radius: 15px;
+  background-color: var(--c1a);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  gap: 5px;
+}
+
+/* switch from https://www.w3schools.com/howto/howto_css_switch.asp*/
+
+/* The switch - the box around the slider */
+.switch {
+  margin-top: 1rem;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
