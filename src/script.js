@@ -1,9 +1,21 @@
 const myLibrary = [];
 
 //modal configuration
-const close = document.querySelector("#close-btn");
-const modal = document.querySelector(".modal");
-const open = document.querySelector("#add-btn");
+const closeModal = document.querySelector("#close-btn");
+const modalForm = document.querySelector(".modal");
+const openModal = document.querySelector("#add-btn");
+const overlay = document.querySelector(".overlay");
+
+//open and close modal
+openModal.addEventListener("click", () => {
+  modalForm.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+});
+
+closeModal.addEventListener("click", () => {
+  modalForm.classList.add("hidden");
+  overlay.classList.add("hidden");
+});
 
 //function for creation of elements (because lazy)
 
