@@ -45,10 +45,3 @@ function rmBook(name) {
   });
   return myLibrary;
 }
-
-const testbook = addBook();
-const alsotestbook = addBook();
-const lotr = addBook();
-myLibrary.push(lotr);
-myLibrary.push(alsotestbook);
-myLibrary.push(testbook);

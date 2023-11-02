@@ -16,30 +16,44 @@
       <header class="header" id="header">
         <h1 class="title">bookNerd</h1>
         <div class="subhead">
-          <button type="button" class="btn">Add book to library</button>
+          <button type="button" class="addbtn">Add book to library</button>
         </div>
       </header>
+      <div id="addBook" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <form action="">
+            <span id="close-btn">X</span>
+            <label for="mtitle" class="mtitle-label"
+              ><input
+                type="text"
+                name="mtitle"
+                id="mtitle"
+                class="mtitle"
+              />Title</label
+            >
+            <label for="mauthor" class="mauthor-label"
+              ><input
+                type="text"
+                name="mauthor"
+                id="mauthor"
+                class="mauthor"
+              />Author</label
+            >
+            <label for="mpages" class="mpages-label"
+              ><input type="number" name="mpages" id="mpages" />Pages</label
+            >
+            <p>Read</p>
+            <label for="mread" class="switch"
+              ><input type="checkbox" name="mread" id="mread" /><span
+                class="slider"
+              ></span>
+            </label>
+            <button class="addbtn" id="mbtn">Add book</button>
+          </form>
+        </div>
+      </div>
       <section class="main-section">
-        <div class="card">
-          <div class="book-property">Title: The Lord of the Rings</div>
-          <div class="book-property">Author: J R R Tolkein</div>
-          <div class="book-property">Pages: 1172</div>
-          <div class="book-property">Status: Not read</div>
-          <label class="switch">
-            <input type="checkbox" />
-            <span class="slider"></span>
-          </label>
-        </div>
-        <div class="card">
-          <div class="book-property">Title: The Lord of the Rings</div>
-          <div class="book-property">Author: J R R Tolkein</div>
-          <div class="book-property">Pages: 1172</div>
-          <div class="book-property">Status: Not read</div>
-          <label class="switch">
-            <input type="checkbox" />
-            <span class="slider"></span>
-          </label>
-        </div>
         <div class="card">
           <div class="book-property">Title: The Lord of the Rings</div>
           <div class="book-property">Author: J R R Tolkein</div>

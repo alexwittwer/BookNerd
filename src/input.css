@@ -42,7 +42,7 @@
   color: var(--c1a);
 }
 
-.btn {
+.addbtn {
   color: var(--c1a);
   font-family: "Raleway", sans-serif;
   box-sizing: border-box;
@@ -53,7 +53,7 @@
   background-color: var(--c4);
 }
 
-.btn:hover {
+.addbtn:hover {
   margin: -3px;
   background-color: var(--c5);
   border-style: solid;
@@ -61,8 +61,61 @@
   border-color: var(--c1a);
 }
 
-.btn:active {
+.addbtn:active {
   scale: 95%;
+}
+
+/* Modal elements */
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: none; /* Enable scroll if needed */
+}
+
+/* Modal Content/Box */
+.modal-content form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--c3);
+  color: var(--c1a);
+  margin: 15% auto;
+  padding: 20px;
+  width: 15%;
+  border-radius: 10%;
+  gap: 1rem;
+}
+
+form input {
+  margin: 10px;
+  padding: 0.4rem;
+  border-radius: 5%;
+  border-style: none;
+}
+
+/* The Close Button */
+#close-btn {
+  color: #fdfdfd;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  align-self: flex-end;
+}
+
+#close-btn:hover,
+#close-btn:focus {
+  color: #c26733;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.submit {
 }
 
 /* Body elements */
