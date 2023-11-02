@@ -1,5 +1,10 @@
 const myLibrary = [];
 
+//modal configuration
+const close = document.querySelector("#close-btn");
+const modal = document.querySelector(".modal");
+const open = document.querySelector("#add-btn");
+
 //function for creation of elements (because lazy)
 
 function mkelem(element, parent, className, paramtext) {
@@ -11,6 +16,8 @@ function mkelem(element, parent, className, paramtext) {
   elem.setAttribute("class", className);
   return pointer.appendChild(elem);
 }
+
+//han
 
 // Constructor function for library
 

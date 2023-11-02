@@ -12,18 +12,24 @@
     />
   </head>
   <body>
+    <div class="hidden overlay"></div>
     <div class="container">
       <header class="header" id="header">
         <h1 class="title">bookNerd</h1>
         <div class="subhead">
-          <button type="button" class="addbtn">Add book to library</button>
+          <button type="button" class="addbtn" id="add-btn">
+            Add book to library
+          </button>
         </div>
       </header>
       <div id="addBook" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
+          <div class="flex">
+            <p>Add book to library</p>
+            <button id="close-btn">X</button>
+          </div>
           <form action="">
-            <span id="close-btn">X</span>
             <label for="mtitle" class="mtitle-label"
               ><input
                 type="text"
@@ -44,11 +50,13 @@
               ><input type="number" name="mpages" id="mpages" />Pages</label
             >
             <p>Read</p>
-            <label for="mread" class="switch"
-              ><input type="checkbox" name="mread" id="mread" /><span
-                class="slider"
-              ></span>
-            </label>
+            <div id="switch">
+              <label for="mread" class="switch"
+                ><input type="checkbox" name="mread" id="mread" /><span
+                  class="slider"
+                ></span>
+              </label>
+            </div>
             <button class="addbtn" id="mbtn">Add book</button>
           </form>
         </div>
