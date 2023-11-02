@@ -87,20 +87,21 @@ function clearInputs() {
 
 // Constructor function for library
 function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+  this.Title = title;
+  this.Author = author;
+  this.Pages = pages;
+  this.Read = read;
 }
 
 // adds a book to the library
 function shelfBook() {
   chRead();
-  const newBook = new Book();
-  newBook.title = mtitle.value;
-  newBook.author = mauthor.value;
-  newBook.pages = mpages.value;
-  newBook.read = mread.checked;
+  const newBook = new Book(
+    mtitle.value,
+    mauthor.value,
+    mpages.value,
+    mread.checked
+  );
   return myLibrary.push(newBook);
 }
 
