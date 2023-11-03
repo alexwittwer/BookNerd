@@ -87,6 +87,7 @@ function updateBookshelf(arr) {
 
     deleteBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      console.log(element.title);
       rmBook(element.title);
     });
 
