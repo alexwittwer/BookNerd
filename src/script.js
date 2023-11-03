@@ -30,6 +30,8 @@ shelfCurrentBook.addEventListener("click", (e) => {
   console.table(myLibrary);
 });
 
+//remove book from library
+
 //
 //
 //
@@ -62,13 +64,67 @@ function updateBookshelf(arr) {
   clearLibrary();
   arr.forEach((element) => {
     const card = document.createElement("div");
-    card.classList.add("card");
     for (const props in element) {
       mkelem("div", card, "default", `${props}: ${element[props]}`);
     }
+
+    //make slider and delete buttons
+    span = mkspan();
+    label = mklabel();
+    checkbox = mkslider();
+    swtch = mkswtch();
+    deleteBtn = mkdel();
+
+    //assign divs for slider
+    label.appendChild(checkbox);
+    label.appendChild(span);
+    swtch.appendChild(label);
+    card.appendChild(swtch);
+    card.appendChild(deleteBtn);
+    card.classList.add("card");
+
+    //add event listener to delete button
+
+    deleteBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      rmBook(element.title);
+    });
+
     bookshelfCtn.appendChild(card);
   });
   return;
+}
+
+//create divs
+function mkdel() {
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete-btn");
+  deleteBtn.textContent = "Delete";
+  return deleteBtn;
+}
+
+function mklabel() {
+  const label = document.createElement("label");
+  label.classList.add("switch");
+  label.setAttribute("for", "read");
+  return label;
+}
+
+function mkspan() {
+  const span = document.createElement("span");
+  span.classList.add("slider");
+  return span;
+}
+
+function mkslider() {
+  const readSlider = document.createElement("input");
+  readSlider.setAttribute("name", "read");
+  readSlider.setAttribute("type", "checkbox");
+  return readSlider;
+}
+function mkswtch() {
+  const swtch = document.createElement("div");
+  return swtch;
 }
 
 //clears all child elements
@@ -113,6 +169,7 @@ function rmBook(name) {
       myLibrary.splice(element, 1);
     }
   });
+  updateBookshelf(myLibrary);
   return myLibrary;
 }
 
