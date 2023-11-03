@@ -23,6 +23,7 @@ closeModal.addEventListener("click", () => {
   closeMdl();
 });
 
+//add book to library
 shelfCurrentBook.addEventListener("click", (e) => {
   e.preventDefault();
   shelfDefault();
