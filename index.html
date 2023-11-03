@@ -35,6 +35,7 @@
           <form action="">
             <label for="mtitle" class="mtitle-label"
               ><input
+                required
                 type="text"
                 name="mtitle"
                 id="mtitle"
@@ -43,6 +44,7 @@
             >
             <label for="mauthor" class="mauthor-label"
               ><input
+                required
                 type="text"
                 name="mauthor"
                 id="mauthor"
@@ -50,7 +52,12 @@
               />Author</label
             >
             <label for="mpages" class="mpages-label"
-              ><input type="number" name="mpages" id="mpages" />Pages</label
+              ><input
+                type="number"
+                name="mpages"
+                id="mpages"
+                required
+              />Pages</label
             >
             <p>Read</p>
             <div id="switch">
@@ -65,7 +72,22 @@
         </div>
       </div>
       <section class="body-container">
-        <section class="main-section" id="bookshelf">
+        <section class="main-section" id="bookshelf"></section>
+      </section>
+      <footer>
+        <p>&copy; Alex Wittwer 2023</p>
+        <a
+          id="github-link"
+          href="https://github.com/alexwittwer"
+          target="_blank"
+        >
+          <img
+            id="github-icon"
+            src="icons/github-mark-white.svg"
+            alt="GitHub icon"
+          />
+        </a>
+      </footer>
     </div>
   </body>
 </html>

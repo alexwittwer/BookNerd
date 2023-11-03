@@ -4,6 +4,17 @@
   margin: 0;
 }
 
+/* animations */
+
+@keyframes slide-from-top {
+  from {
+    margin-top: -100%;
+  }
+  to {
+    margin-top: 0%;
+  }
+}
+
 :root {
   --c1: #302f3a;
   --c2: #444759;
@@ -22,6 +33,9 @@
   height: 100vh;
   width: 100vw;
   background-color: var(--c1);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
 
 /* Header elements */
@@ -90,6 +104,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: slide-from-top ease-in-out 0.3s;
 }
 
 /* Modal Content/Box */
@@ -319,4 +334,30 @@ input:checked + .slider:before {
 ::-webkit-scrollbar-thumb {
   background: var(--c9);
   border-radius: 10px;
+}
+
+/* footer */
+
+footer {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  margin-top: auto; /* Make footer stay at bottom of page */
+  padding: 10px;
+}
+
+footer a {
+  display: flex;
+  align-items: center;
+}
+
+#github-icon {
+  height: 1.5rem;
+}
+
+#github-link:hover {
+  transform: scale(1.2);
 }
