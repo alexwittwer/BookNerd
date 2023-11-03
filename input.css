@@ -33,9 +33,8 @@
   height: 100vh;
   width: 100vw;
   background-color: var(--c1);
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
 }
 
 /* Header elements */
@@ -48,6 +47,7 @@
   gap: 30px;
   padding: 1rem;
   border-bottom: 2px solid var(--c1a);
+  grid-row: 1/2;
 }
 
 .title {
@@ -185,9 +185,10 @@ form #mbtn {
   max-width: 100%;
   max-height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   overflow-y: scroll;
+  grid-row: 2/3;
+  justify-content: center;
+  align-items: baseline;
 }
 
 .main-section {
@@ -195,11 +196,9 @@ form #mbtn {
   justify-content: center;
   align-items: center;
   flex-flow: row wrap;
-  max-width: 50%;
   max-height: 600px;
   gap: 5px;
   margin: 15px;
-  overflow-y: scroll;
 }
 
 .default {
@@ -326,13 +325,13 @@ input:checked + .slider:before {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px rgb(141, 89, 89);
+  box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.219);
   border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--c9);
+  background: var(--c6);
   border-radius: 10px;
 }
 
@@ -341,7 +340,9 @@ input:checked + .slider:before {
 footer {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   padding: 10px;
+  grid-row: 3/4;
 }
 
 #github-icon {
