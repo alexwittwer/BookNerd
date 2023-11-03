@@ -339,23 +339,13 @@ input:checked + .slider:before {
 /* footer */
 
 footer {
-  color: white;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
-  margin-top: auto; /* Make footer stay at bottom of page */
   padding: 10px;
 }
 
-footer a {
-  display: flex;
-  align-items: center;
-}
-
 #github-icon {
-  height: 1.5rem;
+  height: 2rem;
 }
 
 #github-link:hover {
