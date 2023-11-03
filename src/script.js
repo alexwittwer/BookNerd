@@ -61,6 +61,7 @@ function mkelem(element, parent, className, paramtext) {
 
 //update bookshelf with current books
 function updateBookshelf(arr) {
+  console.table(`initial ${myLibrary}`);
   clearLibrary();
   arr.forEach((element) => {
     const card = document.createElement("div");
@@ -87,12 +88,13 @@ function updateBookshelf(arr) {
 
     deleteBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      console.log(element.title);
-      rmBook(element.title);
+      rmBook(element.Title);
     });
 
     bookshelfCtn.appendChild(card);
   });
+
+  console.table(`after ${myLibrary}`);
   return;
 }
 
@@ -165,9 +167,10 @@ function shelfBook() {
 
 // remove book
 function rmBook(name) {
-  myLibrary.forEach((element) => {
-    if (element.title === name) {
-      myLibrary.splice(element, 1);
+  myLibrary.forEach((element, index) => {
+    if (element.Title === name) {
+      myLibrary.splice(index, 1);
+      console.log(index);
     }
   });
   updateBookshelf(myLibrary);
