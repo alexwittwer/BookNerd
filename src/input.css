@@ -15,6 +15,7 @@
   --c8: #b3c6b4;
   --c9: #c5d2ce;
   --c1a: #e9eff0;
+  --read: #8cc4b6;
 }
 
 .container {
@@ -194,14 +195,23 @@ form #mbtn {
   font-family: "Raleway", sans-serif;
   border-radius: 15px;
   background-color: var(--c1a);
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
+  min-width: 10rem;
   flex-flow: column nowrap;
   gap: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.read {
+  background-color: var(--c6);
+}
+
+.read-text {
+  margin-top: 1rem;
 }
 
 .delete-btn {

@@ -27,8 +27,9 @@ closeModal.addEventListener("click", () => {
 shelfCurrentBook.addEventListener("click", (e) => {
   e.preventDefault();
   shelfDefault();
-  console.table(myLibrary);
 });
+
+//change book's read status
 
 //remove book from library
 
@@ -61,20 +62,28 @@ function mkelem(element, parent, className, paramtext) {
 
 //update bookshelf with current books
 function updateBookshelf(arr) {
-  console.table(`initial ${myLibrary}`);
   clearLibrary();
   arr.forEach((element) => {
     const card = document.createElement("div");
     for (const props in element) {
       mkelem("div", card, "default", `${props}: ${element[props]}`);
     }
+    //hacky way to toggle read. we delete the last child to make it so read status won't need to be updated with
+    //library update call, and instead rely on the color changing. instead, we just add a blank div with the "Read" text content
+    //might come back to this, probably wont. dealing with the checkbox is painful enough
+    card.lastChild.remove();
+    mkelem("span", card, "read-text", "Read:");
 
     //make slider and delete buttons
-    span = mkspan();
-    label = mklabel();
-    checkbox = mkslider();
-    swtch = mkswtch();
-    deleteBtn = mkdel();
+    const span = mkspan();
+    const label = mklabel();
+    const checkbox = mkslider();
+    const swtch = mkswtch();
+    const deleteBtn = mkdel();
+
+    //add for and id
+    label.setAttribute("for", element.Title);
+    checkbox.id = element.Title;
 
     //assign divs for slider
     label.appendChild(checkbox);
@@ -84,6 +93,17 @@ function updateBookshelf(arr) {
     card.appendChild(deleteBtn);
     card.classList.add("card");
 
+    //add event listener to checkbox
+    checkbox.addEventListener("change", (e) => {
+      element.Read = !element.Read;
+      changeCardIfRead(card, element);
+    });
+
+    //if read is true, set checkbox to on state
+    if (element.Read) {
+      checkbox.checked = true;
+    }
+
     //add event listener to delete button
 
     deleteBtn.addEventListener("click", (e) => {
@@ -92,10 +112,20 @@ function updateBookshelf(arr) {
     });
 
     bookshelfCtn.appendChild(card);
+    changeCardIfRead(card, element);
   });
 
-  console.table(`after ${myLibrary}`);
   return;
+}
+
+//change card color based on read status
+
+function changeCardIfRead(card, element) {
+  if (element.Read) {
+    card.classList.add("read");
+  } else {
+    card.classList.remove("read");
+  }
 }
 
 //create divs
@@ -109,7 +139,6 @@ function mkdel() {
 function mklabel() {
   const label = document.createElement("label");
   label.classList.add("switch");
-  label.setAttribute("for", "read");
   return label;
 }
 
@@ -155,7 +184,12 @@ function Book(title, author, pages, read) {
 
 // adds a book to the library
 function shelfBook() {
-  chRead();
+  console.log(mtitle.value);
+  //check for duplicate book on shelf
+  if (!checkDupe(mtitle.value)) {
+    alert("Error: book already exists on shelf");
+    return;
+  }
   const newBook = new Book(
     mtitle.value,
     mauthor.value,
@@ -165,20 +199,28 @@ function shelfBook() {
   return myLibrary.push(newBook);
 }
 
+function changeRead() {}
+
+//check for duplicate (return false if a book exists)
+function checkDupe(inputTitle) {
+  for (let i = 0; i < myLibrary.length; i++) {
+    if (inputTitle === myLibrary[i].Title) {
+      return false;
+    }
+  }
+  return true;
+}
+
 // remove book
 function rmBook(name) {
   myLibrary.forEach((element, index) => {
     if (element.Title === name) {
       myLibrary.splice(index, 1);
-      console.log(index);
     }
   });
   updateBookshelf(myLibrary);
   return myLibrary;
 }
-
-//change mread to boolean value
-function chRead() {}
 
 // set status to read
 function readBook(selectedBook) {
