@@ -176,6 +176,7 @@ function clearInputs() {
 
 // Constructor function for library
 class Book {
+  // calls constructor
   constructor(title, author, pages, read) {
     this.Title = title;
     this.Author = author;
@@ -186,7 +187,6 @@ class Book {
 
 // adds a book to the library
 function shelfBook() {
-  console.log(mtitle.value);
   //check for duplicate book on shelf
   if (!checkDupe(mtitle.value)) {
     alert("Error: book already exists on shelf");
