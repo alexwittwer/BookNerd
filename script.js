@@ -176,6 +176,7 @@ function clearInputs() {
 
 // Constructor function for library
 class Book {
+  // calls constructor
   constructor(title, author, pages, read) {
     this.Title = title;
     this.Author = author;
@@ -183,6 +184,10 @@ class Book {
     this.Read = read;
   }
 }
+
+//test
+
+console.log(Object.getOwnPropertyNames(Book));
 
 // adds a book to the library
 function shelfBook() {
