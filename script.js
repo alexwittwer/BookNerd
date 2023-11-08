@@ -185,13 +185,8 @@ class Book {
   }
 }
 
-//test
-
-console.log(Object.getOwnPropertyNames(Book));
-
 // adds a book to the library
 function shelfBook() {
-  console.log(mtitle.value);
   //check for duplicate book on shelf
   if (!checkDupe(mtitle.value)) {
     alert("Error: book already exists on shelf");
