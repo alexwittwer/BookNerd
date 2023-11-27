@@ -5,7 +5,7 @@ const closeModal = document.querySelector("#close-btn");
 const modalForm = document.querySelector(".modal");
 const openModal = document.querySelector("#add-btn");
 const overlay = document.querySelector(".overlay");
-const shelfCurrentBook = document.querySelector("#addToShelf");
+const shelfCurrentBook = document.querySelector(".modal-form");
 const bookshelfCtn = document.querySelector("#bookshelf");
 
 //modal content pointers
@@ -24,7 +24,7 @@ closeModal.addEventListener("click", () => {
 });
 
 //add book to library
-shelfCurrentBook.addEventListener("click", (e) => {
+shelfCurrentBook.addEventListener("submit", (e) => {
   e.preventDefault();
   shelfDefault();
 });
